@@ -1,0 +1,435 @@
+/* Medium Layout: 1367px. */
+
+@media only screen and (min-width: 1200px) and (max-width: 1367px) {
+
+
+    /* home */
+    .navbar-fixed-top .logo a img {
+        height: 40px;
+    }
+
+    .navbar-fixed-top .menu ul li a {
+        padding: 21px 8px;
+    }
+
+
+
+
+}
+
+
+/* Medium Layout: 1280px. */
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+
+    /* home */
+    .logo a img {
+        height: 40px;
+    }
+
+    .navbar-fixed-top .menu ul li a {
+        padding: 21px 8px;
+    }
+
+    .widget-news a .content .title {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .widget-event li a .img {
+        width: 90px;
+    }
+
+    .widget-event li a .content {
+        padding-left: 10px;
+    }
+
+    .widget-event li a .content .title {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+
+
+}
+
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+
+    /* home */
+    .header-bottom-area.navbar-fixed-top {
+        animation: 0s ease 0s normal none 1 running none;
+        box-shadow: none;
+        position: unset;
+    }
+
+    header {
+        min-height: 112px;
+    }
+
+    .hta-box {
+        margin-right: 2px;
+    }
+
+    .hta-box .icon {
+        margin-right: 0;
+    }
+
+    .logo a img {
+        height: 44px;
+    }
+
+    .logo {
+        margin-top: -52px;
+        top: 52px;
+    }
+
+    .slider-area .owl-dots {
+        bottom: 0;
+    }
+
+    .single-slider .content .intro {
+        font-size: 34px;
+        line-height: 38px;
+        margin: 0 0 4px;
+    }
+
+    .single-slider .content .title {
+        font-size: 40px;
+        line-height: 40px;
+        margin: 0 0 18px;
+    }
+
+    .apply-now {
+        padding: 30px;
+    }
+
+    #mymap {
+        height: 470px;
+    }
+
+    .single-login-box {
+        padding: 53px 14px 50px;
+    }
+
+    .single-login-box .title {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .single-login-box .links {
+        margin: 76px 0 0;
+    }
+
+
+
+}
+
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 767px) {}
+
+
+/* Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+
+
+    /* home */
+    .header-bottom-area.navbar-fixed-top {
+        animation: 0s ease 0s normal none 1 running none;
+        box-shadow: none;
+        position: unset;
+    }
+
+    .header-bottom-area {
+        position: unset;
+    }
+
+    .header-bottom-area {
+        position: unset;
+    }
+
+    .logo {
+        margin-top: -56px;
+        top: 56px;
+    }
+
+    .logo a img {
+        height: 44px;
+    }
+
+    .hta-left {
+        text-align: center;
+    }
+
+    .hta-box .icon {
+        margin-right: 0;
+    }
+
+    .hta-box .text {
+        font-size: 12px;
+    }
+
+    .hta-right.text-right {
+        text-align: center !important;
+    }
+
+    .slider-area .owl-dots {
+        bottom: 0;
+    }
+
+    .single-slider .content .intro {
+        font-size: 26px;
+        line-height: 30px;
+        margin: 0 0 6px;
+    }
+
+    .single-slider .content .title {
+        font-size: 34px;
+        line-height: 38px;
+        margin: 0 0 18px;
+    }
+
+    .glbscl-link-btn {
+        font-size: 18px;
+        line-height: 24px;
+        padding: 7px 5px;
+    }
+
+    .top-banner-content .intro {
+        font-size: 26px;
+        line-height: 30px;
+        margin: 0 0 6px;
+    }
+
+    .top-banner-content .title {
+        font-size: 34px;
+        line-height: 38px;
+        margin: 0 0 24px;
+        padding: 0 0 10px;
+    }
+
+    .top-banner-content {
+        margin: 0 0 30px;
+    }
+
+    .apply-now {
+        padding: 30px;
+    }
+
+    .apply-now .title {
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    .apply-now .link {
+        padding: 6px 8px;
+    }
+
+    #mymap {
+        height: 430px;
+    }
+
+    .login-box-col:nth-last-child(1),
+    .login-box-col:nth-last-child(2) {
+        margin-bottom: 30px;
+    }
+
+    .hta-left {
+        display: none;
+    }
+
+    header {
+        min-height: 109px;
+    }
+
+}
+
+
+/* Small Mobile Layout: 480px. */
+
+@media only screen and (min-width: 240px) and (max-width: 480px) {
+
+
+    /* home */
+    .header-bottom-area.navbar-fixed-top {
+        animation: 0s ease 0s normal none 1 running none;
+        box-shadow: none;
+        position: unset;
+    }
+
+    .header-bottom-area {
+        position: unset;
+    }
+
+    .logo {
+        margin-top: -56px;
+        top: 56px;
+    }
+
+    .hta-left {
+        text-align: center;
+    }
+
+    .hta-box {
+        margin-right: 0;
+    }
+
+    .hta-box .icon {
+        margin-right: 0;
+    }
+
+    .hta-box .text {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .hta-right.text-right {
+        text-align: center !important;
+    }
+
+    .logo a img {
+        height: 40px;
+    }
+
+    .slider-area .owl-dots {
+        bottom: 0;
+    }
+
+    .single-slider .content .intro {
+        font-size: 18px;
+        line-height: 22px;
+        margin: 0;
+    }
+
+    .single-slider .content .title {
+        font-size: 24px;
+        line-height: 28px;
+        margin: 0 0 2px;
+    }
+
+    .glbscl-link-btn {
+        font-size: 14px;
+        line-height: 18px;
+        padding: 4px 7px;
+    }
+
+    .top-banner-content .intro {
+        font-size: 22px;
+        line-height: 26px;
+        margin: 0 0 6px;
+    }
+
+    .top-banner-content .title {
+        font-size: 28px;
+        line-height: 32px;
+        margin: 0 0 18px;
+        padding: 0 0 10px;
+    }
+
+    .top-banner-content {
+        margin: 0 0 30px;
+    }
+
+    .section-title .title {
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    .single-testimonial .content {
+        padding: 16px;
+    }
+
+    .single-testimonial .content .text {
+        padding: 30px 0;
+    }
+
+    .apply-now {
+        padding: 30px 20px;
+    }
+
+    .apply-now .title {
+        font-size: 22px;
+        line-height: 26px;
+        margin: 0 0 14px;
+    }
+
+    .apply-now .link {
+        padding: 6px 10px;
+    }
+
+    .page-breadcumb-area .title {
+        font-size: 34px;
+        line-height: 38px;
+    }
+
+    .page-news-details .title {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .widget-news a .img {
+        width: 90px;
+    }
+
+    .widget-news a .content .title {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .widget-news a .content {
+        padding: 2px 0 0 6px;
+    }
+
+    .widget-event li a .img {
+        width: 84px;
+    }
+
+    .widget-event li a .content {
+        padding-left: 8px;
+    }
+
+    .widget-event li a .content .title {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    #mymap {
+        height: 170px;
+    }
+
+    /* login */
+    .single-login-box .links {
+        margin: 48px 0 0;
+    }
+
+    .single-login-box .title {
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    .login-box-col:nth-last-child(1),
+    .login-box-col:nth-last-child(2) {
+        margin-bottom: 30px;
+    }
+
+    .hta-left {
+        display: none;
+    }
+
+    header {
+        min-height: 105px;
+    }
+
+
+}
+
+
+/*big from small mobile, small from wide mobile*/
+@media only screen and (min-width: 380px) and (max-width: 480px) {}

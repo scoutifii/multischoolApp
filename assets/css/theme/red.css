@@ -1,0 +1,124 @@
+body {   
+    background: #e80000;    
+}
+
+.nav_menu{
+    background-color: #e80000
+   /*background: linear-gradient(#e80000, #e2e5e8), #0459af;*/
+}
+
+.modal-header {
+    padding: 6px 10px;
+    background: #23282d;
+   /* background: linear-gradient(#e80000, #e2e5e8), #0459af;*/
+    color: #fff;
+}
+
+.alert-success {
+    color: #ffffff;
+    background-color: #e80000;
+    border-color: #e80000;
+}
+
+.nav.side-menu>li.active>a{
+    background-color: #e80000
+  /*  background: linear-gradient(#e80000, #ffcaca), #e1a8a8;*/
+}
+
+.left_col {
+    background: #e80000;
+}
+
+.nav_title {
+    background: #e80000;
+}
+
+.nav_title span{
+    color: #fdfdfd;   
+}
+
+.nav.side-menu>li>a, .nav.child_menu>li>a {
+    color: #fdfdfd;   
+}
+
+
+.nav-md ul.nav.child_menu li.current-page {
+    background: #ff4444;
+}
+
+.nav-md ul.nav.child_menu li:before{
+    background: #ffffff;
+}
+
+.nav-md ul.nav.child_menu li:after {
+    border-left: 1px solid #ffffff;
+}
+
+.nav.side-menu>li.current-page, 
+.nav.side-menu>li.active,
+.nav-sm .nav.side-menu li.active-sm {
+    border-right: 5px solid #fb8888;
+}
+
+.main_menu span.fa{
+    color: #ffffff;
+}
+
+.fa{
+    color: #ffffff;
+}
+
+.navbar-right .fa{
+    color:#e80000 !important
+}
+
+.site_title{
+    color:#c5c5c5 !important
+}
+
+.head-title i.fa {   
+    color: #e80000;
+}
+
+#menu_toggle i, .nav-tabs i{
+    color: #e80000;
+}
+
+.x_title {
+    border-bottom: 2px solid #e80000;
+}
+
+.btn-success {
+    color: #fdfdfd;
+    background-color: #e80000;
+    border-color: #e80000;
+}
+
+.btn-success:hover {
+    background-color: #e80000;
+    border-color: #e80000;
+}
+
+.nav-sm ul.nav.child_menu{
+    background: #e80000;
+}
+
+.head-title , .head-title small{   
+    color: #e80000;
+}
+
+.nav.child_menu {
+    background: #ff6767;
+}
+
+.box-footer .fa,
+.fa-print,
+.btn-group .fa,
+.btn-file .fa,
+.mail-menu-box  .fa,
+.stats-count-inner  .fa,
+.mailbox-controls .fa,
+.compose-msg .fa,
+.theme-color .fa{
+    color: #e80000;
+}

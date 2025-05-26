@@ -1,0 +1,124 @@
+body {   
+    background: #FF8C00;    
+}
+
+.nav_menu{
+    background: #FF8C00;
+  /* background: linear-gradient(#FF8C00, #e2e5e8), #0459af;*/
+}
+
+.modal-header {
+    padding: 6px 10px;
+    background: #23282d;
+   /* background: linear-gradient(#FF8C00, #e2e5e8), #0459af;*/
+    color: #fff;
+}
+
+.alert-success {
+    color: #ffffff;
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+.nav.side-menu>li.active>a{
+    background: #FF8C00;
+   /* background: linear-gradient(#FF8C00, #fff0dd), #f7ddbc;*/
+}
+
+.left_col {
+    background: #FF8C00;
+}
+
+.nav_title {
+    background: #FF8C00;   
+}
+
+.nav_title span{
+    color: #fdfdfd;   
+}
+
+.nav.side-menu>li>a, .nav.child_menu>li>a {
+    color: #fdfdfd;   
+}
+
+
+.nav-md ul.nav.child_menu li.current-page {
+    background: #fdac4a;
+}
+
+.nav-md ul.nav.child_menu li:before{
+    background: #ffffff;
+}
+
+.nav-md ul.nav.child_menu li:after {
+    border-left: 1px solid #ffffff;
+}
+
+.nav.side-menu>li.current-page, 
+.nav.side-menu>li.active,
+.nav-sm .nav.side-menu li.active-sm {
+    border-right: 5px solid #f3dec6;
+}
+
+.main_menu span.fa{
+    color: #ffffff;
+}
+
+.fa{
+    color: #ffffff;
+}
+
+.navbar-right .fa{
+    color:#FF8C00 !important
+}
+
+.site_title{
+    color:#2A3F54 !important
+}
+
+.head-title i.fa {   
+    color: #FF8C00;
+}
+
+#menu_toggle i, .nav-tabs i{
+    color: #FF8C00;
+}
+
+.x_title {
+    border-bottom: 2px solid #FF8C00;
+}
+
+.btn-success {
+    color: #fdfdfd;
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+.btn-success:hover {
+    background-color: #FF8C00;
+    border-color: #FF8C00;
+}
+
+.nav-sm ul.nav.child_menu{
+    background: #FF8C00;
+}
+
+.head-title , .head-title small{   
+    color: #FF8C00;
+}
+
+.nav.child_menu {
+    background: #ea8306;
+}
+
+.box-footer .fa,
+.fa-print,
+.btn-group .fa,
+.btn-file .fa,
+.mail-menu-box  .fa,
+.stats-count-inner  .fa,
+.mailbox-controls .fa,
+.compose-msg .fa,
+.theme-color .fa{
+    color: #FF8C00;
+}

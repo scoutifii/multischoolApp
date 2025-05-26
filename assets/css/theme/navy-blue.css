@@ -1,0 +1,126 @@
+body {   
+    background: #001f67;    
+}
+
+.nav_menu{
+   background:#001f67;
+}
+
+.modal-header {
+    padding: 6px 10px;
+    background: #001f67;
+    /*background: linear-gradient(#001f67, #cbe5ff), #0459af;*/
+    color: #fff;
+}
+
+.alert-success {
+    color: #ffffff;
+    background-color: #158A10;
+    border-color: #001f67;
+}
+
+
+.left_col {
+    background: ##143246;
+}
+
+.nav_title {
+    background: #001f67;
+}
+
+.nav_title span{
+    color: #fdfdfd;   
+}
+
+.nav.side-menu>li>a, .nav.child_menu>li>a {
+    color: #fdfdfd;   
+}
+
+.nav.side-menu>li.active>a{
+    background: #D3E9F8;
+	color: darkorange;
+}
+.nav.side-menu>li.active>a:hover{
+	color:#F00F13;
+}
+.nav-md ul.nav.child_menu li.current-page {
+    background: #FB8705;
+}
+
+.nav-md ul.nav.child_menu li:before{
+    background: #ffffff;
+}
+
+.nav-md ul.nav.child_menu li:after {
+    border-left: 1px solid #ffffff;
+}
+
+.nav.side-menu>li.current-page, 
+.nav.side-menu>li.active,
+.nav-sm .nav.side-menu li.active-sm {
+    border-left: 5px solid darkorange;
+
+}
+
+.main_menu span.fa{
+    color: #ffffff;
+}
+
+.fa{
+    color: #ffffff;
+}
+
+.navbar-right .fa{
+    color:#0036b1 !important;
+}
+
+.site_title{
+    color:#c5c5c5 !important
+}
+
+.head-title i.fa {   
+    color: #001f67;
+}
+
+#menu_toggle i, .nav-tabs i{
+    color: #001f67;
+}
+
+.x_title {
+    border-bottom: 2px solid #001f67;
+}
+
+.btn-success {
+    color: #fdfdfd;
+    background-color: #001f67;
+    border-color: #001f67;
+}
+
+.btn-success:hover {
+    background-color: #001f67;
+    border-color: #001f67;
+}
+
+.nav-sm ul.nav.child_menu{
+    background: #001f67;
+}
+
+.head-title , .head-title small{   
+    color: #001f67;
+}
+
+.nav.child_menu {
+    background: #1750d8;
+}
+
+.box-footer .fa,
+.fa-print,
+.btn-group .fa,
+.btn-file .fa,
+.mail-menu-box  .fa,
+.stats-count-inner  .fa,
+.mailbox-controls .fa,
+.compose-msg .fa,
+.theme-color .fa{
+    color: #001f67;
+}

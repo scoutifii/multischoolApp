@@ -1,0 +1,250 @@
+body {
+    direction: rtl;
+}
+
+.text-right {
+    text-align: left !important;
+}
+
+.text-left {
+    text-align: right !important;
+}
+
+.float-right {
+    float: left !important;
+}
+
+.float-left {
+    float: right !important;
+}
+
+.offset-lg-1 {
+    margin-left: 0;
+    margin-right: 8.33333%;
+}
+
+.menu ul li .drop {
+    text-align: right;
+}
+
+.menu ul li .drop li .third {
+    left: auto;
+    right: 100%;
+}
+
+.single-slider .content {
+    text-align: right;
+}
+
+.single-event .content .list .info {
+    padding-left: 0;
+    padding-right: 25px;
+    text-align: right;
+}
+
+.single-event .content .list .info .icon {
+    left: auto;
+    right: 0;
+}
+
+.single-event .content .title {
+    text-align: right;
+}
+
+.single-news .content .meta .info .icon {
+    margin-left: 8px;
+}
+
+.single-news .content {
+    text-align: right;
+}
+
+.single-testimonial .content {
+    text-align: right;
+}
+
+.single-testimonial .content .name::after {
+    left: auto;
+    right: 0;
+}
+
+.widget-news a .content {
+    padding: 2px 16px 0 0;
+}
+
+.widget-news a .content .meta .info .icon {
+    margin-left: 6px;
+    margin-right: 0;
+}
+
+.page-news-details .meta .info .icon {
+    margin-left: 6px;
+    margin-right: 0;
+}
+
+.page-news-details .meta {
+    text-align: right;
+}
+
+.page-news-details .title {
+    text-align: right;
+}
+
+.page-news-details .text {
+    text-align: right;
+}
+
+.page-news-details .blockquote {
+    text-align: right;
+}
+
+.page-news-details .blockquote {
+    border-left: 0 none;
+    border-right: 2px solid #2489e5;
+}
+
+.sidebar-title::after {
+    left: auto;
+    right: 0;
+}
+
+.sidebar-title {
+    text-align: right;
+}
+
+.widget-event li a .content {
+    text-align: right;
+}
+
+.widget-event li a .content .event-meta .info .icon {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+.page-event-details {
+    text-align: right;
+}
+
+.page-event-details .event-meta li .icon {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+.page-breadcumb-area .links li::after {
+    left: 0;
+    right: auto;
+}
+
+.page-breadcumb-area .links li {
+    padding-left: 25px;
+    padding-right: 0;
+}
+
+.single-teacher .content .contact {
+    text-align: right;
+}
+
+.single-teacher .content .contact li {
+    padding-left: 0;
+    padding-right: 22px;
+}
+
+.single-teacher .content .contact li .icon {
+    left: auto;
+    margin-left: 0;
+    margin-right: 0;
+    right: 0;
+}
+
+.single-notice {
+    text-align: right;
+}
+
+.single-notice .date .icon {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.widget-notice {
+    text-align: right;
+}
+
+.widget-notice .date .icon {
+    margin-left: 4px;
+    margin-right: 0;
+}
+
+.page-notice {
+    text-align: right;
+}
+
+.page-notice .date .icon {
+    margin-left: 4px;
+    margin-right: 0;
+}
+
+.gallery-section-title {
+    text-align: right;
+}
+
+.gallery-section-title .title::after {
+    left: auto;
+    right: 0;
+}
+
+.contact-page-title {
+    text-align: right;
+}
+
+.contact-page-title::after {
+    left: auto;
+    right: 0;
+}
+
+.single-login-box .links .link {
+    float: right;
+}
+
+
+/*  My */
+.admission-form-title{
+    text-align: right;
+    padding-right: 10px;
+}
+
+.widget-event li a .img,
+.widget-news a .content .meta .info,
+.widget-news a .content .meta,
+.widget-news a .img,
+.field-title{
+    float: right;
+}
+
+.page-breadcumb-area .links li,
+.page-breadcumb-area .links li::after{
+   direction: rtl;
+}
+
+.top-banner-content .text,
+.top-banner-content .title,
+.single-team .st-content .contact li,
+.widget-news a .content .title,
+.hta-left,
+.footer-widget .social,
+.footer-widget .links li,
+.footer-widget .text,
+.footer-widget .fw-logo,
+.footer-widget .fw-title,
+.footer-widget .address li{
+    text-align: right;
+}
+
+.widget-event li a .content{
+    padding-right: 8px;
+}
+.single-team .st-content .contact li .icon{
+    position: inherit;
+    float: right;
+    margin-right: 0px;
+    margin-left:8px;
+}

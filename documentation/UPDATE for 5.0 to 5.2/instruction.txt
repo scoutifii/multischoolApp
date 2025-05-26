@@ -1,0 +1,20 @@
+1. Backup your existing all files and database.
+
+2. Replace all files 5.0 version files with new 5.2 version files
+
+3. Update your database connection as per your database 
+    at aplication->config->database.php
+
+4.  Update following in your config file 
+    at application/config/config.php file 
+    $config['installed'] = FALSE; to $config['installed'] = TRUE;
+
+5. if your domain ssl certified then pls add https instead of http in the 
+     application->config->config.php
+    $root = "http://".$_SERVER['HTTP_HOST']; to $root = "https://".$_SERVER['HTTP_HOST'];
+
+6. Run first update.sql and then update_lang.sql in you existing 
+   database from phpmyadmin
+
+
+

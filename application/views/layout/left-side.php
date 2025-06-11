@@ -13,7 +13,7 @@
                 <?php if($this->school_setting->frontend_logo){ ?>
                      <img class="" src="<?php echo UPLOAD_PATH.'logo/'.$this->school_setting->frontend_logo; ?>" style="width: 50px; vertical-align: center;" alt="">
                 <?php }else{ ?>
-                     <img class="logo" src="<?php echo IMG_URL; ?>/olify.png"  style="width: 50px; height: 60px; vertical-align: center;" alt="">
+                     <img class="logo" src="<?php echo IMG_URL; ?>/scoutifii3.jpg"  style="width: 50px; height: 60px; vertical-align: center;" alt="">
                 <?php } ?>
             </a>
         </div>

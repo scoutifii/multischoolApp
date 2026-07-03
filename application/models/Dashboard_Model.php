@@ -87,32 +87,17 @@ class Dashboard_Model extends MY_Model {
         return $this->db->get()->result();
     }
 
-    public function get_school_by_district($school_id = null) {
+    public function get_school_by_district($district_id = null) {
 
-        $this->db->select('S.school_name, D.district_name');
-        $this->db->from('schools AS S');
-        $this->db->join('district AS D', 'D.id = S.district_id', 'left');
-        $this->db->group_by('S.district_id');
-        $this->db->where('S.status', 1);
-        if ($school_id) {
-            $this->db->where('S.id', $school_id);
+        $this->db->select('D.id, S.school_name, D.district_name AS district');
+        $this->db->from('district AS D');
+        $this->db->join('schools AS S', 'D.id = S.district_id', 'inner');
+        
+        if ($district_id) {
+            $this->db->where('S.district_id', $district_id);
         }
         return $this->db->get()->result();
     }
-
-    /*public function get_active_user_logins($school_id = null,) {
-        $time=gmdate('Y-m-d', time()-(24*60*60));
-        $this->db->select('COUNT(U.role_id) AS total_user, U.username, R.name');
-        $this->db->from('users AS U');
-        $this->db->join('roles AS R', 'R.id = U.role_id', 'left');
-        $this->db->where('U.last_logged_in', $time);
-        $this->db->where('U.status', 1);
-        
-        if ($school_id) {
-            $this->db->where('U.school_id', $school_id);
-        }
-        return $this->db->get()->result();
-    }*/
 
     public function get_student_by_class($school_id = null) {
 
@@ -993,5 +978,46 @@ class Dashboard_Model extends MY_Model {
         $this->db->or_like('E.permanent_address', $keyword, 'after');
         
        return $this->db->get()->result();
+    }
+
+    public function get_total_male_students_per_district($district_id = null) {
+        $this->db->select('COUNT(S.id) AS total_male_students');
+        $this->db->from('schools AS S');
+        $this->db->join('students AS ST', 'S.id = ST.school_id', 'inner');
+        $this->db->join('district AS D', 'D.id = ST.school_id', 'inner');
+        $this->db->where('ST.gender', 'male');
+        if ($district_id) {
+            $this->db->where('S.district_id', $district_id);
+        }
+        return $this->db->get()->row()->total_male_students;
+    }
+
+    public function get_total_female_students_per_district($district_id = null) {
+        $this->db->select('COUNT(S.id) AS total_female_students');
+        $this->db->from('schools AS S');
+        $this->db->join('students AS ST', 'S.id = ST.school_id', 'inner');
+        $this->db->join('district AS D', 'D.id = ST.school_id', 'inner');
+        $this->db->where('ST.gender', 'female');
+        if ($district_id) {
+            $this->db->where('S.district_id', $district_id);
+        }
+        return $this->db->get()->row()->total_female_students;
+    }
+
+    public function get_student_by_class_by_district($district_id = null) {
+
+        $this->db->select('COUNT(E.student_id) AS total_student, C.name AS class_name, S.school_name');
+        $this->db->from('enrollments AS E');
+        $this->db->join('classes AS C', 'C.id = E.class_id', 'left');
+        $this->db->join('schools AS S', 'S.id = E.school_id', 'left');
+        $this->db->join('students AS ST', 'ST.id = E.student_id', 'left');
+        $this->db->join('district AS D', 'D.id = S.district_id', 'left');        
+        $this->db->where('E.status', 1);
+        $this->db->where('ST.status_type', 'regular');
+        $this->db->group_by('E.class_id');
+        if ($district_id) {
+            $this->db->where('S.district_id', $district_id);
+        }
+        return $this->db->get()->result();
     }
 }

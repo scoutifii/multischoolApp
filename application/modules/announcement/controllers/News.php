@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************News.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : News
- * @description     : Manage school academic news.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * *********************** *********************************** */
 
 class News extends MY_Controller {
 

@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\system\libraries\Javascript.php
+Line: 79
+Original: extract($defaults);
+
+Patch Preview:
+---
+- extract($defaults);
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid extract(); assign explicitly: \ = \['var'] ?? null;

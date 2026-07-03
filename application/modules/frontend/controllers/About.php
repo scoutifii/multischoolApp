@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************About.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : About
- * @description     : Manage application about text  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class About extends MY_Controller {
 

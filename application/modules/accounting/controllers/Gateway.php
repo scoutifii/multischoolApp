@@ -2,16 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Gateway.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Gateway
- * @description     : Process payment gateway notiication.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
+
 class Gateway extends CI_Controller {
 
     public $data = array();    

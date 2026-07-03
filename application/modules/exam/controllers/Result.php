@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Result.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Result
- * @description     : Manage exam final result and prepare promotion to next class.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Result extends MY_Controller {
 

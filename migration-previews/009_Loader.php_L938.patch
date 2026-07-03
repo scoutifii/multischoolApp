@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\system\core\Loader.php
+Line: 938
+Original: extract($this->_ci_cached_vars);
+
+Patch Preview:
+---
+- extract($this->_ci_cached_vars);
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid extract(); assign explicitly: \ = \['var'] ?? null;

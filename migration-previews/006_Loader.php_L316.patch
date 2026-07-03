@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\application\third_party\MX\Loader.php
+Line: 316
+Original: extract($_ci_data);
+
+Patch Preview:
+---
+- extract($_ci_data);
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid extract(); assign explicitly: \ = \['var'] ?? null;

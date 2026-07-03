@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\system\libraries\Javascript\Jquery.php
+Line: 111
+Original: extract($params);
+
+Patch Preview:
+---
+- extract($params);
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid extract(); assign explicitly: \ = \['var'] ?? null;

@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Grade.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Grade
- * @description     : Manage exam result grade point system.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Grade extends MY_Controller {
 

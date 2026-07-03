@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Routine.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Routine
- * @description     : Manage academic class routine time schedule.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Routine extends MY_Controller {
 

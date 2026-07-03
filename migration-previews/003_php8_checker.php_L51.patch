@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\php8_checker.php
+Line: 51
+Original: '/extract\s*\(/' => 'extract() should be avoided',
+
+Patch Preview:
+---
+- '/extract\s*\(/' => 'extract() should be avoided',
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid extract(); assign explicitly: \ = \['var'] ?? null;

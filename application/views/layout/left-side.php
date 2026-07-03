@@ -763,13 +763,6 @@
                         </li> 
                     <?php } ?>
                         
-                    
-                        
-                       
-                        
-                       
-                   
-                        
                     <?php if(has_permission(VIEW, 'certificate', 'certificate') || has_permission(VIEW, 'certificate', 'type')){ ?>
                     <li><a><i class="fa fa-certificate"></i> <?php echo $this->lang->line('certificate'); ?> <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -879,9 +872,6 @@
                             </ul>
                         </li>  
                     <?php } ?>
-                   
-                    
-                    
                     
                     
                     <?php if(has_permission(VIEW, 'report', 'report')){ ?>
@@ -948,9 +938,6 @@
                         </ul>
                     </li>  
                     <?php } ?>
-                     
-                                   
-                    
                 </ul>
             </div>     
         </div>

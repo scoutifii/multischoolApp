@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Calllog.php**********************************
- * @product name    : Global Multi School Management System Express
- * @Calllog            : Class
- * @class name      : Calllog
- * @description     : Manage phonr call log.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Calllog extends MY_Controller {
 

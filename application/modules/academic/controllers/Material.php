@@ -2,16 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Material.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Material
- * @description     : Manage academic material for each class as per school course curriculam.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
+
 
 class Material extends MY_Controller {
 

@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\system\database\drivers\mysql\mysql_utility.php
+Line: 86
+Original: extract($params);
+
+Patch Preview:
+---
+- extract($params);
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid extract(); assign explicitly: \ = \['var'] ?? null;

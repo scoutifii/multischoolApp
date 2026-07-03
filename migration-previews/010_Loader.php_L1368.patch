@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\system\core\Loader.php
+Line: 1368
+Original: * Prepare variables for _ci_vars, to be later extract()-ed inside views
+
+Patch Preview:
+---
+- * Prepare variables for _ci_vars, to be later extract()-ed inside views
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid extract(); assign explicitly: \ = \['var'] ?? null;

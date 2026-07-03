@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\php8_checker.php
+Line: 41
+Original: '/create_function/' => 'create_function() removed',
+
+Patch Preview:
+---
+- '/create_function/' => 'create_function() removed',
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Convert to anonymous function or named function. Example:  = function(args) { /* body */ };

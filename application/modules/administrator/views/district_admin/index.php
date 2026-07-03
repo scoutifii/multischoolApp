@@ -42,6 +42,7 @@
                                     <tr>
                                         <th><?php echo $this->lang->line('sl_no'); ?></th>                                        
                                         <th><?php echo $this->lang->line('photo'); ?></th>
+                                        <th><?php echo $this->lang->line('district_name'); ?></th>
                                         <th><?php echo $this->lang->line('name'); ?></th>
                                         <th><?php echo $this->lang->line('phone'); ?></th>
                                         <th><?php echo $this->lang->line('email'); ?></th>
@@ -60,6 +61,7 @@
                                                 <img src="<?php echo IMG_URL; ?>/default-user.png" alt="" width="70" /> 
                                                 <?php } ?>
                                             </td>
+                                            <td><?php echo ucfirst($obj->district_name); ?></td>
                                             <td><?php echo ucfirst($obj->name); ?></td>
                                             <td><?php echo $obj->phone; ?></td>
                                             <td><?php echo $obj->email; ?></td>

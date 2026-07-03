@@ -2,16 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Incomehead.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Incomehead
- * @description     : Manage all income type/head/title as per accounting term.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
+
 
 class Incomehead extends MY_Controller {
 

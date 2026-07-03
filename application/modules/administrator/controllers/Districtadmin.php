@@ -10,7 +10,7 @@ class Districtadmin extends MY_Controller {
     function __construct() {
         parent::__construct();
         $this->load->model('Districtadmin_Model', 'districtadmin', true);   
-        /*if($this->session->userdata('role_id') != DISTRICT_EDUCATION_OFFICER){ 
+        /*if($this->session->userdata('role_id') != DISTRICT_ADMIN){ 
             error($this->lang->line('permission_denied'));
             redirect('dashboard');
         }*/

@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\system\core\Security.php
+Line: 536
+Original: * For example:	eval('some code')
+
+Patch Preview:
+---
+- * For example:	eval('some code')
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid eval(); refactor to use callbacks or parsing. Review carefully.

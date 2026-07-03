@@ -19,8 +19,12 @@ class My_Controller extends CI_Controller {
             exit;
         }
         
-        // Get all schools
-        $this->schools = $this->db->get_where('schools', array('status'=>1))->result();
+        // Get schools - restrict to district for DISTRICT_ADMIN
+        if ($this->session->userdata('role_id') == DISTRICT_ADMIN && $this->session->userdata('district_id')) {
+            $this->schools = $this->db->get_where('schools', array('status' => 1, 'district_id' => $this->session->userdata('district_id')))->result();
+        } else {
+            $this->schools = $this->db->get_where('schools', array('status'=>1))->result();
+        }
         
         $this->global_setting = $this->db->get_where('global_setting', array('status'=>1))->row();       
         if($this->session->userdata('role_id') != SUPER_ADMIN){
@@ -43,12 +47,12 @@ class My_Controller extends CI_Controller {
         clearstatcache();
         
         if($this->session->userdata('role_id') == SUPER_ADMIN && !empty($this->global_setting)){  
-           
-             $this->lang->load($this->global_setting->language);
-             
-        }else if($this->session->userdata('role_id') != SUPER_ADMIN && !empty($this->school_setting)){
-            
+            $this->lang->load($this->global_setting->language);
+        } elseif($this->session->userdata('role_id') != SUPER_ADMIN && !empty($this->school_setting)){
             $this->lang->load($this->school_setting->language);
+        } elseif(!empty($this->global_setting)){
+            // Fallback for non-super-admin users without school language settings, e.g. district admins
+            $this->lang->load($this->global_setting->language);
         }
                
         if($this->school_setting->enable_rtl){ 

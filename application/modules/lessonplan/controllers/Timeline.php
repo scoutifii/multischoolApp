@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Timeline.php**********************************
- * @topic           : Global - Multi School Management System Express
- * @type            : Class
- * @class name      : timeline
- * @description     : Manage :timeline
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Timeline extends MY_Controller {
 

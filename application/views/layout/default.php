@@ -22,13 +22,11 @@
         <!-- Bootstrap -->
         <link href="<?php echo VENDOR_URL; ?>bootstrap/bootstrap.min.css" rel="stylesheet">
         
-<!--        <link rel="stylesheet" href="//cdn.rawgit.com/morteza/bootstrap-rtl/v3.3.4/dist/css/bootstrap-rtl.min.css">-->
         <!-- Font Awesome -->
         <link href="<?php echo VENDOR_URL; ?>font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="<?php echo VENDOR_URL; ?>dist/css/dropify.min.css" rel="stylesheet">
         <link href="<?php echo VENDOR_URL; ?>select2/select2.min.css" rel="stylesheet">
-         <link href="<?php echo VENDOR_URL; ?>dist/css/nprogress.css" rel="stylesheet">
-       
+        <link href="<?php echo VENDOR_URL; ?>dist/css/nprogress.css" rel="stylesheet">
         
     
         <!-- Custom Theme Style -->
@@ -148,10 +146,16 @@
         <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script> 
         <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNfYoctRzjcijDJqZM-6m3m59IH_-UU7M&libraries=places&callback=initAutocomplete"></script>
         script async defer src="https://maps.googleapis.com/maps/api/js?sensor=false=places&callback=initAutocomplete"></script-->
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQTgB2PHuDSVwncr8tFyAb190D&libraries=places&callback=initAutocomplete"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNfYoctRzjcijDJqZM-6m3m59IH_-UU7M&libraries=places&callback=initAutocomplete&v=weekly"></script>
         
-        
-       <!-- dataTable with buttons end -->       
+        <!-- Mapbox GL JS -->
+        <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
+
+        <!-- Mapbox Search JS -->
+        <script id="search-js" defer src="https://api.mapbox.com/search-js/v1.5.0/web.js"></script>
+       
+        <!-- dataTable with buttons end -->       
         <link href="<?php echo VENDOR_URL; ?>toastr/toastr.min.css" rel="stylesheet">
        <!-- Custom Theme Scripts -->       
        

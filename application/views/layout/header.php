@@ -36,9 +36,18 @@
                             </a>
                         </li>
                     </ul>
-                    <?php  if($this->session->userdata('role_id') != SUPER_ADMIN){ ?>
+                    <?php  if($this->session->userdata('role_id') == DISTRICT_ADMIN){ ?>
+                        <?php 
+                            $dn = $this->session->userdata('district_name');
+                            if(empty($dn) && $this->session->userdata('district_id')){
+                                $district = $this->db->get_where('district', array('id' => $this->session->userdata('district_id')))->row();
+                                $dn = isset($district->district_name) ? $district->district_name : '';
+                            }
+                            echo $dn;
+                        ?>
+                    <?php } elseif($this->session->userdata('role_id') != SUPER_ADMIN){ ?>
                         <?php echo $this->session->userdata('school_name'); ?>
-                    <?php }else{ ?>
+                    <?php } else { ?>
                        <?php echo $this->global_setting->brand_name ? $this->global_setting->brand_name : SMS; ?>
                     <?php } ?>
                 </div>

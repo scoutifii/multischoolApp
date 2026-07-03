@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Lessonplan.php**********************************
- * @topic           : Global - Multi School Management System Express
- * @type            : Class
- * @class name      : Lessonplan
- * @description     : Manage :Lessonplan
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Lessonplan extends MY_Controller {
 

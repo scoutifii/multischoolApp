@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Teacher.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Generate
- * @description     : Manage all type of system teacher listing.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Teacher extends MY_Controller {
 

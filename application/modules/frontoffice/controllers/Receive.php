@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Receive.php**********************************
- * @product name    : Global Multi School Management System Express
- * @Receive            : Class
- * @class name      : Receive
- * @description     : Manage Postal receive.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Receive extends MY_Controller {
 

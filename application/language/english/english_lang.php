@@ -1231,3 +1231,5 @@ $lang['signature'] = "Signature";
 $lang['all_result_card'] = "All Result Card";
 $lang['result_email'] = "Result Email";
 $lang['result_sms'] = "Result SMS";
+$lang['original_school'] = "Original School";
+$lang['current_school'] = "Current School";

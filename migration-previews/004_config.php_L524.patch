@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\application\config\config.php
+Line: 524
+Original: | Note: You need to have eval() enabled for this to work.
+
+Patch Preview:
+---
+- | Note: You need to have eval() enabled for this to work.
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid eval(); refactor to use callbacks or parsing. Review carefully.

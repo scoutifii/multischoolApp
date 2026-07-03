@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Status.php**********************************
- * @topic           : Global - Multi School Management System Express
- * @type            : Class
- * @class name      : Status
- * @description     : Manage :Status
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Status extends MY_Controller {
 

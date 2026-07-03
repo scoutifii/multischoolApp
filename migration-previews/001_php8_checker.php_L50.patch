@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\php8_checker.php
+Line: 50
+Original: '/eval\s*\(/' => 'eval() should be avoided',
+
+Patch Preview:
+---
+- '/eval\s*\(/' => 'eval() should be avoided',
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid eval(); refactor to use callbacks or parsing. Review carefully.

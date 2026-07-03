@@ -2,16 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Income.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Income
- * @description     : Manage all kind of income like student fee, admission, fine and other income.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
+
 class Income extends MY_Controller {
 
     public $data = array();

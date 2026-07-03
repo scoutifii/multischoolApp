@@ -26,15 +26,16 @@ class Dashboard extends MY_Controller {
             
         $this->data['school'] = array();
         $school_id = $this->session->userdata('school_id'); 
+        $district_id = $this->session->userdata('district_id'); 
         $role_id = $this->session->userdata('role_id');  
         $theme = $this->session->userdata('theme');
         $sch_id = $this->input->post('school_id');
         
         $this->data['theme'] = $this->dashboard->get_single('themes', array('status' => 1, 'slug' => $theme));    
         
-        // if($this->session->userdata('role_id') != SUPER_ADMIN){            
-        //     $this->data['school']   = $this->dashboard->get_single('schools', array('status'=>1, 'id'=>$school_id));
-        // }            
+        if($this->session->userdata('role_id') != SUPER_ADMIN){            
+            $this->data['school']   = $this->dashboard->get_single('schools', array('status'=>1, 'id'=>$school_id));
+        }            
        
         
         $this->data['news'] = $this->dashboard->get_list('news', array('status' => 1, 'school_id'=>$school_id), '', '5', '', 'id', 'DESC');
@@ -42,7 +43,10 @@ class Dashboard extends MY_Controller {
         $this->data['events'] = $this->dashboard->get_list('events', array('status' => 1, 'school_id'=>$school_id), '', '', '10', 'id', 'DESC');
         $this->data['holidays'] = $this->dashboard->get_list('holidays', array('status' => 1, 'school_id'=>$school_id), '', '10', '', 'id', 'DESC');
         
-        $this->data['schools'] = $this->dashboard->get_school_by_district($school_id);
+        $this->data['schools_by_district'] = $this->dashboard->get_school_by_district($district_id);
+        $this->data['male_student_by_district'] = $this->dashboard->get_total_male_students_per_district($district_id);
+        $this->data['female_student_by_district'] = $this->dashboard->get_total_female_students_per_district($district_id);
+        $this->data['studentS_by_district'] = $this->dashboard->get_student_by_class_by_district($district_id);
         $this->data['coordinates'] = $this->dashboard->get_lat_lng($school_id);
         $this->data['users'] = $this->dashboard->get_user_by_role($school_id);
         //$this->data['active_logins'] = $this->dashboard->get_active_user_logins($school_id);

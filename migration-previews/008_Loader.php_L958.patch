@@ -1,0 +1,9 @@
+﻿File: C:\wamp64\www\multischool\system\core\Loader.php
+Line: 958
+Original: echo eval('?>'.preg_replace('/;*\s*\?>/', '; ?>', str_replace('<?=', '<?php echo ', file_get_contents($_ci_path))));
+
+Patch Preview:
+---
+- echo eval('?>'.preg_replace('/;*\s*\?>/', '; ?>', str_replace('<?=', '<?php echo ', file_get_contents($_ci_path))));
++ // [MIGRATION PREVIEW] original line commented out
++ // SUGGESTION: Avoid eval(); refactor to use callbacks or parsing. Review carefully.

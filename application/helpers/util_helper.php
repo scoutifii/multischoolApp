@@ -1,7 +1,250 @@
 <?php
 
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+if (!function_exists('get_instance')) {
+
+    function &get_instance()
+    {
+        static $instance;
+
+        if ($instance === null) {
+            $instance = new CI3Instance();
+        }
+
+        return $instance;
+    }
+}
+
+if (!class_exists('CI3Instance')) {
+
+    class CI3Instance
+    {
+        public $session;
+        public $db;
+        public $lang;
+        public $config;
+        public $router;
+
+        public function __construct()
+        {
+            $this->session = new CI3Session();
+            $this->db = new CI3DBCompat();
+            $this->lang = new CI3LangCompat();
+            $this->config = new CI3ConfigCompat();
+            $this->router = new CI3RouterCompat();
+        }
+    }
+}
+
+if (!class_exists('CI3Session')) {
+
+    class CI3Session
+    {
+        protected $session;
+
+        public function __construct()
+        {
+            $this->session = \Config\Services::session();
+            if (!$this->session->isStarted()) {
+                $this->session->start();
+            }
+        }
+
+        public function userdata($key = null)
+        {
+            return $key === null ? $this->session->get() : $this->session->get($key);
+        }
+
+        public function set_userdata($key, $value = null)
+        {
+            if (is_array($key)) {
+                return $this->session->set($key);
+            }
+
+            return $this->session->set([$key => $value]);
+        }
+
+        public function unset_userdata($key)
+        {
+            $this->session->remove((array) $key);
+        }
+    }
+}
+
+if (!class_exists('CI3LangCompat')) {
+
+    class CI3LangCompat
+    {
+        protected $lang;
+
+        public function __construct()
+        {
+            $this->lang = \Config\Services::language();
+        }
+
+        public function line($key = '')
+        {
+            return $this->lang->getLine($key);
+        }
+    }
+}
+
+if (!class_exists('CI3ConfigCompat')) {
+
+    class CI3ConfigCompat
+    {
+        public function item($item, $index = null)
+        {
+            if ($index === null) {
+                if (function_exists('config')) {
+                    return config($item, false);
+                }
+
+                return null;
+            }
+
+            if (function_exists('config')) {
+                $config = config($index, false);
+                if (is_object($config) && property_exists($config, $item)) {
+                    return $config->$item;
+                }
+                if (is_array($config) && array_key_exists($item, $config)) {
+                    return $config[$item];
+                }
+            }
+
+            return null;
+        }
+    }
+}
+
+if (!class_exists('CI3RouterCompat')) {
+
+    class CI3RouterCompat
+    {
+        protected $router;
+
+        public function __construct()
+        {
+            $this->router = \Config\Services::router();
+        }
+
+        public function fetch_class()
+        {
+            if (method_exists($this->router, 'controllerName')) {
+                return $this->router->controllerName() ?: '';
+            }
+
+            return '';
+        }
+
+        public function fetch_module()
+        {
+            return '';
+        }
+    }
+}
+
+if (!class_exists('CI3DBCompat')) {
+
+    class CI3DBCompat
+    {
+        protected $connection;
+        protected $builder;
+
+        public function __construct()
+        {
+            $this->connection = \Config\Database::connect();
+            $this->builder = null;
+        }
+
+        protected function getBuilder($table = null)
+        {
+            if ($table !== null) {
+                $this->builder = $this->connection->table($table);
+            } elseif ($this->builder === null) {
+                throw new \RuntimeException('Database builder not initialized.');
+            }
+
+            return $this->builder;
+        }
+
+        public function select($select)
+        {
+            $this->getBuilder()->select($select);
+            return $this;
+        }
+
+        public function from($from)
+        {
+            $table = preg_replace('/\s+AS\s+.*$/i', '', $from);
+            $this->builder = $this->connection->table($table);
+            $this->builder->from($from);
+            return $this;
+        }
+
+        public function join($table, $cond, $type = 'left')
+        {
+            $this->getBuilder()->join($table, $cond, $type);
+            return $this;
+        }
+
+        public function where($key, $value = null, $escape = null)
+        {
+            $this->getBuilder()->where($key, $value, $escape);
+            return $this;
+        }
+
+        public function where_in($key, $values)
+        {
+            if (!is_array($values)) {
+                $values = array_filter(array_map('trim', explode(',', $values)));
+            }
+            $this->getBuilder()->whereIn($key, $values);
+            return $this;
+        }
+
+        public function order_by($orderBy, $direction = 'ASC')
+        {
+            $this->getBuilder()->orderBy($orderBy, $direction);
+            return $this;
+        }
+
+        public function get($table = null, $limit = null, $offset = null)
+        {
+            if ($table !== null) {
+                $result = $this->connection->table($table)->get($limit, $offset);
+            } else {
+                $result = $this->getBuilder()->get($limit, $offset);
+            }
+
+            $this->builder = null;
+            return $result;
+        }
+
+        public function get_where($table, $where = null, $limit = null, $offset = null)
+        {
+            $this->builder = null;
+            return $this->connection->table($table)->getWhere($where, $limit, $offset);
+        }
+
+        public function query($sql, $binds = null)
+        {
+            $this->builder = null;
+            return $this->connection->query($sql, $binds);
+        }
+
+        public function insert($table, $data = null, $escape = null)
+        {
+            return $this->connection->table($table)->insert($data);
+        }
+
+        public function update($table, $data = null, $where = null, $limit = null)
+        {
+            $builder = $this->connection->table($table);
+            return $builder->update($data, $where);
+        }
+    }
+}
 
 if (!function_exists('_d')) {
 
@@ -725,7 +968,7 @@ if (!function_exists('get_user_by_role')) {
             $ci->db->where('SA.user_id', $user_id);
             return $ci->db->get()->row();
 
-        } elseif ($role_id == DEO) {
+        } elseif ($role_id == DISTRICT_ADMIN) {
             
             $ci->db->select('DA.*, U.username, U.role_id');
             $ci->db->from('district_admin AS DA');

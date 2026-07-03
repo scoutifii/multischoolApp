@@ -16,7 +16,11 @@
                     <div class="col-md-3 col-sm-3 col-xs-6" style="<?php if($counter%4 == 0){ echo 'float:left; clear:both;'; } ?>">
                         <div class="theme-box">
                             <img src="<?php echo IMG_URL; ?>theme/<?php echo $obj->slug; ?>.png" alt="" />
-                            <a href="<?php echo site_url('theme/activate/'.$obj->id); ?>"><button class="btn btn-success" style="background: <?php echo $obj->color_code; ?>;border: 1px solid <?php echo $obj->color_code; ?>;">  <?php echo $this->session->userdata('theme') == $obj->slug ? '<i class="fa fa-check"></i> '. $this->lang->line('active') : $this->lang->line('activate'); ?></button></a>
+                            <a href="<?php echo site_url('theme/activate/'.$obj->id); ?>">
+                                <button class="btn btn-success" style="background: <?php echo $obj->color_code; ?>;border: 1px solid <?php echo $obj->color_code; ?>;"> 
+                                     <?php echo $this->session->userdata('theme') == $obj->slug ? '<i class="fa fa-check"></i> '. $this->lang->line('active') : $this->lang->line('activate'); ?>
+                                </button>
+                            </a>
                         </div>
                     </div>
                     <?php $counter++; } ?>

@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Member.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Member
- * @description     : Manage transport member of the school.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Member extends MY_Controller {
 

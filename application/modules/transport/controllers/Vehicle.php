@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Vehicle.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Vehicle
- * @description     : Manage transport vehicle.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Vehicle extends MY_Controller {
 

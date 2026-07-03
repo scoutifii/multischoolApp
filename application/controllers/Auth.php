@@ -12,6 +12,7 @@ class Auth extends CI_Controller {
 
         parent::__construct();
         $this->load->model('Auth_Model', 'auth', true);
+        $this->load->helper('totp');
         $this->global_setting = $this->db->get_where('global_setting', array('status'=>1))->row();        
         
         
@@ -45,13 +46,13 @@ class Auth extends CI_Controller {
               
                 // check school status
                 
-                if($login->role_id != SUPER_ADMIN){                    
-                   $school = $this->auth->get_single('schools', array('status' => 1, 'id'=>$login->school_id));
-                   
-                   if(empty($school)){
+                if (!in_array($login->role_id, array(SUPER_ADMIN, DISTRICT_ADMIN))) {
+                    $school = $this->auth->get_single('schools', array('status' => 1, 'id'=>$login->school_id));
+                    
+                    if (empty($school)) {
                         $this->session->set_flashdata('error', $this->lang->line('invalid_login'));
                         redirect('login');
-                   }
+                    }
                 }
                 
                 // check user active status
@@ -67,70 +68,14 @@ class Auth extends CI_Controller {
                     redirect('login');
                 }
 
-                // User table data
-                $this->session->set_userdata('id', $login->id);
-                $this->session->set_userdata('role_id', $login->role_id);
-                $this->session->set_userdata('username', $login->username);
-                $this->session->set_userdata('school_id', $login->school_id);
-                
-                
-                if ($login->role_id == SUPER_ADMIN) {
-                   $profile = $this->auth->get_single('system_admin', array('user_id' => $login->id));
-                }elseif ($login->role_id == DISTRICT_ADMIN) {
-                   $profile = $this->auth->get_single('district_admin', array('user_id' => $login->id));
-                }elseif ($login->role_id == STUDENT) {
-                    
-                    $profile = $this->auth->get_single_student($login->id);                 
-                    $this->session->set_userdata('class_id', $profile->class_id);
-                    $this->session->set_userdata('section_id', $profile->section_id);
-                    
-                } elseif ($login->role_id == GUARDIAN) {
-                    $profile = $this->auth->get_single('guardians', array('user_id' => $login->id));
-                } elseif ($login->role_id == TEACHER) {
-                    $profile = $this->auth->get_single('teachers', array('user_id' => $login->id));               
-                } else {
-                    $profile = $this->auth->get_single('employees', array('user_id' => $login->id));
-                } 
-            
-                if (isset($profile->name)) {
-                   $this->session->set_userdata('name', $profile->name);
-                }
-                if (isset($profile->phone)) {
-                    $this->session->set_userdata('phone', $profile->phone);
-                }
-                if (isset($profile->email)) {
-                    $this->session->set_userdata('email', $profile->email);
-                }
-                if (isset($profile->photo)) {
-                    $this->session->set_userdata('photo', $profile->photo);
-                }
-                if (isset($profile->user_id)) {                
-                    $this->session->set_userdata('user_id', $profile->user_id);
-                }
-                if (isset($profile->id)) {
-                    $this->session->set_userdata('profile_id', $profile->id);
-                }              
-
-                // set appliction setting
-                if($login->role_id != SUPER_ADMIN){ 
-                                        
-                    if (isset($school->school_name)) {
-                        $this->session->set_userdata('school_name', $school->school_name);
-                    } 
-                    $this->session->set_userdata('theme', $school->theme_name);
-                    $this->session->set_userdata('front_school_id', $login->school_id);
-                    $this->session->set_userdata('academic_year_id', $school->academic_year_id);
-                    
-                }else{
-                    
-                    $global_setting = $this->auth->get_single('global_setting', array());
-                    $this->session->set_userdata('theme', $global_setting->theme_name);
+                if (!empty($login->two_factor_enabled) && !empty($login->two_factor_secret)) {
+                    $this->session->set_userdata('pending_login_id', $login->id);
+                    $this->session->set_userdata('pending_login_username', $login->username);
+                    $this->session->set_flashdata('success', 'Enter the code from your authenticator app.');
+                    redirect('auth/twofactor');
                 }
 
-                $this->auth->update('users', array('last_logged_in' => date('Y-m-d H:i:s')), array('id' => logged_in_user_id()));
-                success($this->lang->line('login_success'));
-                create_log('Has been logged in');
-                redirect('dashboard/index');
+                $this->complete_login($login);
                 
             } else {
                 
@@ -139,6 +84,159 @@ class Auth extends CI_Controller {
             }
         }
         redirect();
+    }
+
+    private function complete_login($login) {
+        if ($login->role_id == SUPER_ADMIN) {
+            $profile = $this->auth->get_single('system_admin', array('user_id' => $login->id));
+        } elseif ($login->role_id == DISTRICT_ADMIN) {
+            $profile = $this->auth->get_single('district_admin', array('user_id' => $login->id));
+            if (isset($profile->district_id)) {
+                $this->session->set_userdata('district_id', $profile->district_id);
+                $district = $this->auth->get_single('district', array('id' => $profile->district_id));
+                if (isset($district->district_name)) {
+                    $this->session->set_userdata('district_name', $district->district_name);
+                }
+            }
+        } elseif ($login->role_id == STUDENT) {
+            $profile = $this->auth->get_single_student($login->id);
+            if (isset($profile->class_id)) {
+                $this->session->set_userdata('class_id', $profile->class_id);
+            }
+            if (isset($profile->section_id)) {
+                $this->session->set_userdata('section_id', $profile->section_id);
+            }
+        } elseif ($login->role_id == GUARDIAN) {
+            $profile = $this->auth->get_single('guardians', array('user_id' => $login->id));
+        } elseif ($login->role_id == TEACHER) {
+            $profile = $this->auth->get_single('teachers', array('user_id' => $login->id));
+        } else {
+            $profile = $this->auth->get_single('employees', array('user_id' => $login->id));
+        }
+
+        if (isset($profile->name)) {
+           $this->session->set_userdata('name', $profile->name);
+        }
+        if (isset($profile->phone)) {
+            $this->session->set_userdata('phone', $profile->phone);
+        }
+        if (isset($profile->email)) {
+            $this->session->set_userdata('email', $profile->email);
+        }
+        if (isset($profile->photo)) {
+            $this->session->set_userdata('photo', $profile->photo);
+        }
+        if (isset($profile->user_id)) {                
+            $this->session->set_userdata('user_id', $profile->user_id);
+        }
+        if (isset($profile->id)) {
+            $this->session->set_userdata('profile_id', $profile->id);
+        }
+
+        $this->session->set_userdata('id', $login->id);
+        $this->session->set_userdata('role_id', $login->role_id);
+        $this->session->set_userdata('username', $login->username);
+        $this->session->set_userdata('school_id', $login->school_id);
+
+        if (!in_array($login->role_id, array(SUPER_ADMIN, DISTRICT_ADMIN))) {
+            $school = $this->auth->get_single('schools', array('status' => 1, 'id'=>$login->school_id));
+            if (isset($school->school_name)) {
+                $this->session->set_userdata('school_name', $school->school_name);
+            }
+            $this->session->set_userdata('theme', isset($school->theme_name) ? $school->theme_name : '');
+            $this->session->set_userdata('front_school_id', $login->school_id);
+            $this->session->set_userdata('academic_year_id', isset($school->academic_year_id) ? $school->academic_year_id : '');
+        } elseif ($login->role_id == SUPER_ADMIN) {
+            $global_setting = $this->auth->get_single('global_setting', array());
+            $this->session->set_userdata('theme', isset($global_setting->theme_name) ? $global_setting->theme_name : '');
+        }
+
+        $this->auth->update('users', array('last_logged_in' => date('Y-m-d H:i:s')), array('id' => $login->id));
+        success($this->lang->line('login_success'));
+        create_log('Has been logged in');
+        redirect('dashboard/index');
+    }
+
+    public function twofactor() {
+        $pendingId = $this->session->userdata('pending_login_id');
+        if (empty($pendingId)) {
+            redirect('login');
+        }
+
+        if ($_POST) {
+            $code = trim($this->input->post('code'));
+            $login = $this->auth->get_single('users', array('id' => $pendingId));
+
+            if (empty($login) || empty($login->two_factor_enabled) || empty($login->two_factor_secret)) {
+                $this->session->unset_userdata('pending_login_id');
+                redirect('login');
+            }
+
+            if (verify_totp_code($login->two_factor_secret, $code)) {
+                $this->session->unset_userdata('pending_login_id');
+                $this->complete_login($login);
+            }
+
+            $this->session->set_flashdata('error', 'Invalid authentication code. Please try again.');
+            redirect('auth/twofactor');
+        }
+
+        $data = array();
+        $data['username'] = $this->session->userdata('pending_login_username');
+        $this->load->view('twofactor', $data);
+    }
+
+    public function setup_totp() {
+        if (!logged_in_user_id()) {
+            redirect('login');
+        }
+
+        $user = $this->auth->get_single('users', array('id' => logged_in_user_id()));
+        if (empty($user)) {
+            redirect('dashboard/index');
+        }
+
+        $data = array();
+        $secret = $user->two_factor_secret;
+        if (empty($secret)) {
+            $secret = totp_generate_secret();
+            $this->session->set_userdata('totp_setup_secret', $secret);
+        } else {
+            $this->session->set_userdata('totp_setup_secret', $secret);
+        }
+
+        if ($_POST) {
+            $code = trim($this->input->post('code'));
+            $setupSecret = $this->session->userdata('totp_setup_secret');
+
+            if (!empty($setupSecret) && verify_totp_code($setupSecret, $code)) {
+                $this->auth->update('users', array('two_factor_secret' => $setupSecret, 'two_factor_enabled' => 1), array('id' => $user->id));
+                $this->session->unset_userdata('totp_setup_secret');
+                $this->session->set_flashdata('success', 'Two-factor authentication has been enabled.');
+                redirect('auth/setup_totp');
+            }
+
+            $this->session->set_flashdata('error', 'The code is invalid. Please try again.');
+            redirect('auth/setup_totp');
+        }
+
+        $label = !empty($user->username) ? $user->username : 'user';
+        $issuer = !empty($this->global_setting->brand_name) ? $this->global_setting->brand_name : 'School';
+
+        $data['secret'] = $secret;
+        $data['qr_url'] = totp_qr_url($label, $issuer, $secret);
+        $data['enabled'] = !empty($user->two_factor_enabled);
+        $this->load->view('setup_totp', $data);
+    }
+
+    public function disable_totp() {
+        if (!logged_in_user_id()) {
+            redirect('login');
+        }
+
+        $this->auth->update('users', array('two_factor_enabled' => 0, 'two_factor_secret' => null), array('id' => logged_in_user_id()));
+        $this->session->set_flashdata('success', 'Two-factor authentication has been disabled.');
+        redirect('auth/setup_totp');
     }
 
     /*     * ***************Function logout**********************************

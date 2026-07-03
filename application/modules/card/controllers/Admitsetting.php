@@ -2,16 +2,6 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* * *****************Admitsetting.php**********************************
- * @product name    : Global Multi School Management System Express
- * @type            : Class
- * @class name      : Admitsetting
- * @description     : Manage school id Card setting.  
- * @author          : Codetroopers Team 	
- * @url             : https://themeforest.net/user/codetroopers      
- * @support         : yousuf361@gmail.com	
- * @copyright       : Codetroopers Team	 	
- * ********************************************************** */
 
 class Admitsetting extends MY_Controller {
 

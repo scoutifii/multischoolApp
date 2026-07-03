@@ -1221,3 +1221,49 @@
         });
     };
 </script>
+
+<!-- <script type="text/javascript">
+    // Replace with your Mapbox public token
+    const MAPBOX_TOKEN = 'pk.eyJ1Ijoic2NvdXRpZmlpMjU2IiwiYSI6ImNtcHYzajlvZjI0MmUycnE2eml4OXU3YzgifQ.Zhx2YDkqdBQym-HuVCpD8A';
+
+
+    function initAutocomplete() {
+        const schoolInput = document.getElementById('school_name');
+
+        if (!schoolInput) {
+            console.error('School name input not found!');
+            return;
+        }
+
+        const searchBox = new MapboxSearchBox();
+
+        searchBox.accessToken = MAPBOX_TOKEN;
+        searchBox.options = {
+            types: ['poi', 'address', 'place'],     // You can filter types
+            // Optional: focus on a region
+            // proximity: { lng: -73.567, lat: 45.5017 }, // e.g., Montreal
+        };
+
+        // searchBox.attachTo(schoolInput);
+
+        searchBox.addEventListener('result', (event) => {
+            const result = event.detail;
+            console.log('Selected place:', result);
+
+            // Set latitude and longitude
+            if (result.features && result.features.length > 0) {
+                const coordinates = result.features[0].geometry.coordinates;
+
+                // Clear address field (as in your original code)
+                document.getElementById('address').value = '';
+               
+                document.getElementById('school_lat').value = coordinates[1]; // lat
+                document.getElementById('school_lng').value = coordinates[0]; // lng
+            }
+        });
+
+    }
+
+    // Initialize when page loads
+    window.addEventListener('load', initAutocomplete);
+</script> -->

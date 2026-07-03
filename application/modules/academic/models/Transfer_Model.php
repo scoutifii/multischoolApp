@@ -27,4 +27,15 @@ class Transfer_Model extends MY_Model {
         return $this->db->get()->result();        
     }
 
+    public function get_teacher_transfer_list(){
+
+        $this->db->select('T.name AS teacher, T.photo, T.phone, S1.school_name AS original_school, S2.school_name AS current_school');
+        $this->db->from('teacher_transfers AS TT');
+        $this->db->join('teachers AS T', 'T.id = TT.teacher_id', 'inner');
+        $this->db->join('schools AS S1', 'S1.id = TT.school_id', 'inner');
+        $this->db->join('schools AS S2', 'S2.id = TT.next_school_id', 'inner');
+
+        return $this->db->get()->result();
+    }
+
 }
